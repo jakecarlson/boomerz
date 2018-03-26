@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+	
+	<head>
+		<meta charset="UTF-8">
+		<title>BOOMERZ</title>
+		<meta name="format-detection" content="telephone=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+		<link rel="image_src" href="http://boomerzgame.com/game/img/logo.png">
+		<meta property="og:image" content="http://boomerzgame.com/game/img/logo.png">
+		<link rel="stylesheet" href="lib/lib.css" type="text/css">
+		<link rel="stylesheet" href="game/game.css" type="text/css">
+		<link rel="apple-touch-icon" href="icon-iphone.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="icon-ipad.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="icon-iphone-retina.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="icon-ipad-retina.png">
+		<link rel="apple-touch-startup-image" href="startup-iphone.png" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)">
+		<link rel="apple-touch-startup-image" href="startup-iphone-retina.png" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)">
+		<link rel="apple-touch-startup-image" href="startup-iphone-retina-tall.png"  media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)">
+		<link rel="apple-touch-startup-image" href="startup-ipad-portrait.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)">
+		<link rel="apple-touch-startup-image" href="startup-ipad-landscape.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)">
+		<link rel="apple-touch-startup-image" href="startup-ipad-portrait-retina.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)">
+		<link rel="apple-touch-startup-image" href="startup-ipad-landscape-retina.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)">
+	</head>
+	
+	<body>
+		
+		<div id="bmz-game" class="screen-container start">
+		
+			<section class="screen" id="bmz-screen-start">
+				<div id="bmz-start-loader">
+					<a href="http://www.snabbo.com" class="sponsor" target="_blank">Snabbo&trade; <span>presents</span></a>
+					<h1 class="logo">Boomerz&trade;</h1>
+					<span class="loading">Loading ...</span>
+				</div>
+				<form action="" id="bmz-start-setup">
+					<fieldset>
+						<h2>Pick a Side</h2>
+						<label class="checked"><input type="radio" name="side" value="liberal" checked="checked"> Liberal</label>
+						<label><input type="radio" name="side" value="conservative"> Conservative</label>
+						<input type="submit" name="start" value="Play" class="btn">
+					</fieldset>
+					<span class="mask">&nbsp;</span>
+				</form>
+			</section>
+		
+			<section class="screen paused" id="bmz-screen-level">
+				<canvas id="bmz-level-canvas"></canvas>
+				<div id="bmz-level-menu" class="open">
+					<ul class="actions">
+						<li class="start"><a href="#start">Start</a></li>
+						<li class="restart"><a href="#restart">Restart</a></li>
+					</ul>
+					<div class="credits">
+						<h2>Credits</h2>
+						<dl>
+							<dt>Character Illustration</dt>
+								<dd>Kristen Price</dd>
+							<dt>Background Illustration</dt>
+								<dd>Molly Jordan</dd>
+							<dt>Interface Illustration</dt>
+								<dd>Stephanie Paige</dd>
+							<dt>Character Voices</dt>
+								<dd>K. Thomas &amp; B. Bagot</dd>
+							<dt>Sound &amp; Development</dt>
+								<dd>Jake Carlson</dd>
+						</dl>
+						<p class="sponsor">Presented by <a href="http://www.snabbo.com" target="_blank">Snabbo.com&trade;</a> &amp; <a href="http://www.dragoneyedesign.com" target="_blank">Dragon Eye Design</a>.</p>
+					</div>
+					<p class="directions"><strong>Protect the <span class="building">building</span> from the evil <span class="enemy">attacker</span>s!</strong>&nbsp;<span class="input">Click</span> on a <span class="enemy">attacker</span> and fling him away to kill him. The higher you fling him, the more points you'll get. You can spend the points you earn on special abilities described below. Survive as long as you can. <span class="start"><span class="input">Click</span> &quot;Convene&quot; to start!</span></p>
+					<ul class="ui-directions">
+						<li class="pause">Pause the Game</li>
+						<li class="compromise">Restore 25% to Structural Integrity Bar <span>500 points</span></li>
+						<li class="damage">Structure Hit Points Remaining <span>The Game Ends When This is Depleted!</span></li>
+						<li class="cliff">Kill All Near Structure for 5 Seconds <span>2,500 points</span></li>
+						<li class="filibuster">Kill All Instantly <span>1,000 points</span></li>
+					</ul>
+					<p class="wrapup">The <span class="building">building</span> has fallen! Play again and try to beat your score.</p>
+				</div>
+				<dl id="bmz-level-score">
+					<dt class="label">Score:</dt>
+						<dd class="num">0</dd>
+				</dl>
+				<ul id="bmz-level-buttons">
+					<li class="pause"><a href="#" id="bmz-level-pause">Recess</a></li>
+					<li class="compromise"><a href="#" id="bmz-level-compromise" class="down">Compromise</a></li>
+					<li class="cliff"><a href="#" id="bmz-level-cliff" class="down">Fiscal Cliff</a></li>
+					<li class="filibuster"><a href="#" id="bmz-level-filibuster" class="down">Filibuster</a></li>
+				</ul>
+				<div id="bmz-level-damage"><span class="label">Structural Integrity</span><span class="mask"></span></div>
+			</section>
+			
+			<div id="bmz-orientation">Please turn your device to be in landscape orientation.</div>
+			
+			<div id="bmz-compatibility">Sorry, but your browser won't work with this game. Please use a recent version of <a href="http://www.google.com/chrome" target="_blank">Google Chrome</a>, <a href="http://www.apple.com/safari/" target="_blank">Apple Safari</a>, or <a href="http://windows.microsoft.com/IE" target="_blank">Microsoft Internet Explorer</a>, or <a href="http://www.mozilla.org/en-US/firefox/new/" target="_blank">Mozilla Firefox</a>.</div>
+			
+			<div id="bmz-share">
+				<!-- AddThis Button BEGIN -->
+				<div class="addthis_toolbox addthis_default_style ">
+					<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+					<a class="addthis_button_tweet"></a>
+					<a class="addthis_button_google_plusone" g:plusone:size="medium"></a> 
+				</div>
+				<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+				<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-50d44c036983a6cb"></script>
+				<!-- AddThis Button END -->
+			</div>
+			
+		</div>
+		
+		<script src="phonegap.js" type="text/javascript"></script>
+		<script src="lib/lib.js" type="text/javascript"></script>
+		<script src="game/run.js" type="text/javascript"></script>
+	
+	</body>
+	
+</html>

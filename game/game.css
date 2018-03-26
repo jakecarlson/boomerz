@@ -1,0 +1,672 @@
+/* fonts */
+@import url("http://fast.fonts.com/cssapi/feefb790-6ae8-4c93-a863-688f167b2f4b.css");
+@import url("http://fonts.googleapis.com/css?family=Cinzel:400,700");
+/*
+font-family:'Trajan W01 Bd';
+font-family:'Trajan W01 Regular';
+*/
+
+/* body */
+body {
+	font-family: 'Trajan W01 Regular', 'Cinzel', serif;
+	cursor: url("img/openhand.cur"), default !important;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	font-size: 100%;
+	-ms-touch-action: none;
+}
+body.inputActive {
+	cursor: url("img/closedhand.cur"), default !important;	
+}
+
+/* links */
+a,
+a:visited
+{
+	color: #006096;
+	text-decoration: none;
+}
+a:hover,
+a:active
+{
+	color: #002356;	
+	text-decoration: none;
+}
+
+/* bmz */
+#bmz-game {
+	position: absolute;
+	top: 0;
+	left: 0;	
+}
+
+/* bmz-start */
+#bmz-screen-start {
+	background-color: #000;
+	background-image: url("img/screen-start.svg");
+	background-attachment: fixed;
+	width: 200%;
+	-webkit-transition: left 0.5s ease-in-out, top 0.5s ease-in-out 1s;
+	-moz-transition: left 0.5s ease-in-out, top 0.5s ease-in-out 1s;
+	-o-transition: left 0.5s ease-in-out, top 0.5s ease-in-out 1s;
+	transition: left 0.5s ease-in-out, top 0.5s ease-in-out 1s;
+	z-index: 3;
+}
+#bmz-screen-start.showSetup {
+	left: -100%;	
+}
+#bmz-screen-start.hidden {
+	top: 100%;
+}
+#bmz-start-loader {
+	float: left;
+	width: 50%;
+	height: 100%;
+	position: relative;
+}
+#bmz-start-loader .logo {
+	width: 100%;
+	height: 100%;
+	text-indent: -999ex;
+	background: transparent url("img/logo.svg") no-repeat center center;
+	background-size: 100% 100%;
+}
+#bmz-start-loader .sponsor {
+	position: absolute;
+	z-index: 5;
+	top: 23.75%;
+	left: 7.5%;
+	height: 10%;
+	color: #fff;
+	font-size: 10ex;
+	font-size: 7.5vh;
+	text-decoration: none;
+	text-shadow:
+		0 1px 0 #000,
+		0 -1px 0 #000,
+		-1px 0 0 #000,
+		1px 0 0 #000;
+}
+#bmz-start-loader .sponsor span {
+	font-size: 0.66ex;
+	font-size: 5vh;	
+}
+#bmz-start-loader .loading {
+	position: absolute;
+	z-index: 5;
+	right: 7.5%;
+	bottom: 23.75%;
+	height: 5%;
+	color: #fff;
+	font-size: 10ex;
+	font-size: 7.5vh;	
+	text-shadow:
+		0 1px 0 #000,
+		0 -1px 0 #000,
+		-1px 0 0 #000,
+		1px 0 0 #000;
+}
+#bmz-start-setup {
+	float: left;
+	width: 50%;
+	height: 100%;
+	position: relative;
+	background: transparent url("img/ballot-box.svg") no-repeat 70% bottom;
+	background-size: 75% auto;
+}
+#bmz-start-setup > fieldset {
+	position: absolute;
+	top: 5%;
+	left: 30%;
+	width: 40%;
+	height: 50%;
+	padding-left: 5%;
+	padding-right: 5%;
+	background: transparent url("img/ballot.svg") no-repeat center top;
+	background-size: 100% 100%;
+	transition: top 1s ease-in-out 0.25s;
+	-moz-transition: top 1s ease-in-out 0.25s;
+	-webkit-transition: top 1s ease-in-out 0.25s;
+	-o-transition: top 1s ease-in-out 0.25s;
+}
+#bmz-start-setup > fieldset.complete {
+	top: 100%
+}
+#bmz-start-setup > fieldset > h2 {
+	text-align: center;
+	font-size: 5ex;
+	font-size: 5vh;
+	line-height: 4ex;
+	line-height: 9vh;
+	margin-bottom: 5%;
+}
+#bmz-start-setup > fieldset > label {
+	display: block;
+	height: 10%;
+	padding-left: 12.5%;
+	background: transparent url("img/ballot-option-unchecked.svg") no-repeat left center;
+	background-size: auto 100%;
+	margin-bottom: 5%;
+	overflow: hidden;
+	font-size: 7ex;
+	font-size: 4vh;
+	line-height: 2ex;
+	line-height: 6vh;
+	cursor: pointer;
+}
+#bmz-start-setup > fieldset > label.checked {
+	background-image: url("img/ballot-option-checked.svg");
+}
+#bmz-start-setup > fieldset > label > input {
+	position: absolute;
+	left: 100%;
+	visibility: hidden;
+}
+#bmz-start-setup > fieldset > .btn {
+	-webkit-appearance: none;
+	width: 100%;
+	height: 30%;
+	font-size: 10ex;
+	font-size: 7.5vh;
+	border: none;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	-o-border-radius: 0;
+	border-radius: 0;
+	font-family: 'Trajan W01 Regular', 'Cinzel', serif;
+	background: transparent none no-repeat center center;
+	background-size: auto 100%;
+	cursor: pointer;
+}
+#bmz-start-setup > fieldset > .btn.active {
+	background-image: url("img/btn-active.svg");	
+}
+#bmz-start-setup > .mask {
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	height: 15%;
+	background: transparent url("img/ballot-box.svg") no-repeat 70% bottom;
+	background-size: 75% auto;
+}
+
+/* bmz-level */
+#bmz-screen-level {
+	z-index: 1;
+}
+#bmz-screen-level .overlay {
+	position: absolute;
+	z-index: 10;
+	display: none;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.5);
+}
+#bmz-screen-level.paused .overlay,
+#bmz-screen-level.end .overlay
+{
+	display: block;
+}
+
+/* score */
+#bmz-level-score {
+	position: absolute;
+	z-index: 15;
+	top: 0;
+	left: 10%;
+	width: 80%;
+	height: 10%;
+	background: transparent url("img/screen-level-score.svg") no-repeat center top;
+	background-size: 100% 100%;
+	color: #fff;
+	font-size: 5ex;
+	font-size: 3vh;
+	line-height: 4ex;
+	line-height: 8vh;
+	/*text-shadow:
+		0 0.1ex 0 #fff,
+		0 -0.1ex 0 #fff,
+		-0.1ex 0 0 #fff,
+		0.1ex 0 0 #fff;*/
+}
+#bmz-level-score .label {
+	position: absolute;
+	top: 0;
+	left: 55%;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+#bmz-level-score .num {
+	position: absolute;
+	top: 0;
+	right: 15%;
+	text-align: right;
+}
+
+/* controls */
+#bmz-level-menu {
+	position: absolute;
+	z-index: 13;
+	top: -100%;
+	left: 17.75%;
+	width: 54.5%;
+	height: 100%;
+	padding-left: 5%;
+	padding-right: 5%;
+	background: transparent url("img/screen-level-menu.svg") no-repeat center top;
+	background-size: 100% 100%;
+	color: #000;
+	/*text-shadow: 
+		0 0.1ex 0 #fff,
+		0 -0.1ex 0 #fff,
+		-0.1ex 0 0 #fff,
+		0.1ex 0 0 #fff;*/
+	-webkit-transition: top 0.5s ease-in-out;
+	-moz-transition: top 0.5s ease-in-out;
+	-o-transition: top 0.5s ease-in-out;
+	transition: top 0.5s ease-in-out;
+}
+#bmz-level-menu.open {
+	top: -30%;
+}
+.end #bmz-level-menu.open {
+	top: -12.5%;	
+}
+#bmz-level-menu strong {
+	font-weight: bold;	
+}
+#bmz-level-menu .actions {
+	position: absolute;
+	left: 10%;
+	bottom: 5%;
+	width: 80%;
+	height: 7.5%;
+}
+#bmz-level-menu .actions li {
+	position: absolute;
+	height: 100%;
+	width: 25%;
+}
+#bmz-level-menu .actions li a {
+	display: block;
+	height: 100%;
+	background: transparent none no-repeat center center;
+	background-size: 100% 100%;
+	text-indent: -9999px;	
+}
+.running #bmz-level-menu .actions .start,
+.end #bmz-level-menu .actions .start
+{
+	display: none;	
+}
+#bmz-level-menu .actions .start {
+	position: absolute;
+	top: 0;
+	left: 37.5%;
+}
+.liberal #bmz-level-menu .actions .start a {
+	background-image: url("img/btn-convene-liberal.svg");
+}
+.conservative #bmz-level-menu .actions .start a {
+	background-image: url("img/btn-convene-conservative.svg");
+}
+#bmz-level-menu .actions .restart {
+	position: absolute;
+	display: none;	
+	top: 0;
+	left: 37.5%;
+}
+.running #bmz-level-menu .actions .restart,
+.end #bmz-level-menu .actions .restart
+{
+	display: block;	
+}
+.liberal #bmz-level-menu .actions .restart a {
+	background-image: url("img/btn-restart-liberal.svg");
+}
+.conservative #bmz-level-menu .actions .restart a {
+	background-image: url("img/btn-restart-conservative.svg");
+}
+
+/* credits */
+#bmz-level-menu .credits {
+	position: absolute;
+	display: none;
+	bottom: 17.5%;
+	left: 5%;
+	width: 85.75%;
+	padding: 2.5%;
+	background: rgba(255,255,255,0.9);
+	border: 2px solid #000;
+	font-size: 4ex;
+	font-size: 3.5vh;
+	line-height: 2ex;
+}
+.end #bmz-level-menu .credits {
+	display: block;	
+}
+#bmz-level-menu .credits h2 {
+	font-weight: bold;
+	text-align: center;
+	font-size: 1.5ex;
+	font-size: 2.5vh;
+	line-height: 3ex;
+	line-height: 4vh;
+	margin-bottom: 0;	
+}
+#bmz-level-menu .credits dt {
+	font-weight: bold;
+	float: left;
+	clear: left;
+	width: 60%;
+}
+#bmz-level-menu .credits dd {
+	margin-bottom: 1ex;
+	margin-bottom: 1vh;	
+}
+#bmz-level-menu .credits .sponsor {
+	display: block;	
+}
+
+/* directions */
+#bmz-level-menu .directions {
+	position: absolute;
+	display: block;
+	top: 42.5%;
+	left: 5%;
+	width: 85.75%;
+	color: #000;
+	padding: 2.5%;
+	background: rgba(255,255,255,0.9);
+	font-size: 4ex;
+	font-size: 3vh;
+	line-height: 1.5ex;
+	border: 2px solid #000;
+}
+.running #bmz-level-menu .directions .start {
+	display: none;	
+}
+.end #bmz-level-menu .directions {
+	display: none;	
+}
+
+/* wrapup */
+#bmz-level-menu .wrapup {
+	position: absolute;
+	display: none;
+	top: 25%;
+	left: 5%;
+	width: 85.75%;
+	color: #000;
+	padding: 2.5%;
+	background: rgba(255,255,255,0.9);
+	font-size: 4ex;
+	font-size: 3vh;
+	line-height: 1.5ex;
+	border: 2px solid #000;
+	font-weight: bold;
+	text-align: center;
+}
+.end #bmz-level-menu .wrapup {
+	display: block;	
+}
+
+/* ui-directions */
+#bmz-level-menu .ui-directions {
+	position: absolute;
+	display: none;
+	left: -27.5%;
+	top: 102.5%;
+	width: 155%;
+	height: 15%;
+	color: #fff;
+	text-shadow:
+		0 1px 0 #000,
+		0 -1px 0 #000,
+		-1px 0 0 #000,
+		1px 0 0 #000;
+}
+#bmz-level-menu.open .ui-directions {
+	display: block;	
+}
+.end #bmz-level-menu .ui-directions {
+	display: none;	
+}
+#bmz-level-menu .ui-directions li {
+	position: absolute;
+	bottom: 0;
+	text-align: center;
+	font-size: 4.5ex;
+	font-size: 3vh;
+	line-height: 4ex;
+	line-height: 1.5ex;
+}
+#bmz-level-menu .ui-directions li span {
+	display: block;
+	font-size: 1.5ex;
+	font-size: 2.5vh;
+	padding-top: 0.5ex;
+	padding-top: 2.5vh;
+	color: #fc0;
+}
+#bmz-level-menu .ui-directions .pause {
+	left: 2.5%;
+	width: 12.5%;
+}
+#bmz-level-menu .ui-directions .compromise {
+	left: 17.5%;
+	width: 17.5%;
+}
+#bmz-level-menu .ui-directions .damage {
+	left: 37.5%;
+	width: 25%;	
+}
+#bmz-level-menu .ui-directions .cliff {
+	right: 17.5%;
+	width: 17.5%;
+}
+#bmz-level-menu .ui-directions .filibuster {
+	right: 2.5%;
+	width: 12.5%;
+}
+
+/* buttons */
+#bmz-level-buttons {
+	position: absolute;
+	z-index: 14;
+	top: 90%;
+	left: 0;
+	width: 100%;
+	height: 7.5%;
+}
+#bmz-level-buttons li {
+	position: absolute;
+	display: block;
+	height: 100%;
+}
+#bmz-level-buttons li a {
+	display: block;
+	height: 100%;
+	text-indent: -9999px;
+	background: transparent	none no-repeat center center;
+	background-size: 100% 100%;
+}
+
+/* pause button */
+#bmz-level-buttons .pause {
+	left: 2.5%;
+	width: 12.5%;
+}
+.liberal #bmz-level-pause {
+	background-image: url("img/btn-recess-liberal-up.svg");
+}
+.liberal #bmz-level-pause.down {
+	background-image: url("img/btn-recess-liberal-down.svg");
+}
+.conservative #bmz-level-pause {
+	background-image: url("img/btn-recess-conservative-up.svg");
+}
+.conservative #bmz-level-pause.down {
+	background-image: url("img/btn-recess-conservative-down.svg");
+}
+
+/* compromise button */
+#bmz-level-buttons .compromise {
+	left: 17.5%;
+	width: 17.5%;
+}
+.liberal #bmz-level-compromise {
+	background-image: url("img/btn-compromise-liberal-up.svg");
+}
+.conservative #bmz-level-compromise {
+	background-image: url("img/btn-compromise-conservative-up.svg");
+}
+#bmz-level-compromise.down {
+	background-image: url("img/btn-compromise-down.svg");
+}
+
+/* fiscal cliff button */
+#bmz-level-buttons .cliff {
+	right: 17.5%;
+	width: 17.5%;
+}
+.liberal #bmz-level-cliff {
+	background-image: url("img/btn-cliff-liberal-up.svg");
+}
+.conservative #bmz-level-cliff {
+	background-image: url("img/btn-cliff-conservative-up.svg");
+}
+#bmz-level-cliff.down {
+	background-image: url("img/btn-cliff-down.svg");
+}
+
+/* filibuster button */
+#bmz-level-buttons .filibuster {
+	right: 2.5%;
+	width: 12.5%;
+}
+.liberal #bmz-level-filibuster {
+	background-image: url("img/btn-filibuster-liberal-up.svg");
+}
+.conservative #bmz-level-filibuster {
+	background-image: url("img/btn-filibuster-conservative-up.svg");
+}
+#bmz-level-filibuster.down {
+	background-image: url("img/btn-filibuster-down.svg");
+}
+
+/* damage bar */
+#bmz-level-damage {
+	display: block;
+	position: absolute;
+	z-index: 14;
+	left: 37.5%;
+	top: 90%;
+	width: 25%;
+	height: 7.5%;
+	background: transparent url("img/screen-level-bar.svg") no-repeat center center;
+	background-size: 100% 100%;	
+}
+#bmz-level-damage .label {
+	position: absolute;
+	display: block;
+	z-index: 13;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	color: #fff;
+	text-shadow:
+		0 1px 0 #000,
+		0 -1px 0 #000,
+		-1px 0 0 #000,
+		1px 0 0 #000;
+	font-size: 2.5em;
+	font-size: 1.75vw;
+	line-height: 4.5ex;
+	line-height: 8vh;
+}
+#bmz-level-damage .mask {
+	position: absolute;
+	z-index: 12;
+	top: 0;
+	right: 0;
+	height: 100%;
+	width: 0;
+	background: transparent url("img/screen-level-bar-mask.svg") no-repeat right center;
+	background-size: auto 100%;
+}
+
+/* compatibility notice */
+#bmz-compatibility {
+	position: absolute;
+	display: none;
+	z-index: 15;
+	bottom: 0;
+	left: 0;
+	width: 98%;
+	padding: 1%;
+	font-size: 3ex;
+	text-align: center;
+	background: #fff;
+	border: 2px solid #000;	
+}
+#bmz-compatibility.hidden {
+	display: none;
+}
+
+/* device orientation warning */
+#bmz-orientation {
+	display: none;	
+}
+
+/* Display device orientation warning */
+@media only screen and (orientation: portrait) {
+	#bmz-orientation {
+		position: absolute;
+		display: block;
+		z-index: 15;
+		bottom: 0;
+		left: 0;
+		width: 98%;
+		padding: 1%;
+		font-size: 3ex;
+		text-align: center;
+		background: #fff;
+		border: 2px solid #000;	
+	}
+}
+
+/* share */
+#bmz-share {
+	display: none;	
+}
+
+/* Display share only for screens wider than 1000px */
+@media only screen and (min-device-width: 1000px) {
+
+	/* share */
+	#bmz-share {
+		display: block;
+		position: absolute;
+		z-index: 10;
+		width: 30%;
+		text-align: center;
+	}
+	.start #bmz-share {
+		left: 35%;
+		bottom: 5%;
+		top: auto;	
+	}
+	.level #bmz-share {
+		top: 2.5%;
+		left: 20%;
+		bottom: auto;
+		text-align: left;
+	}
+
+}
